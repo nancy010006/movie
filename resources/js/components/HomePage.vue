@@ -1,9 +1,6 @@
 <template>
   <div class="home-page">
-    <div class="header">
-      <h1>Welcome to My Movie Site</h1>
-      <input type="text" placeholder="Search movies..." class="search-box" />
-    </div>
+    <search-bar></search-bar>
     <div class="movies">
       <div v-if="loading">Loading movies...</div>
       <div class="movie-card" v-for="movie in movies" :key="movie.id">
@@ -17,9 +14,13 @@
 
 <script>
 import axios from 'axios';
+import SearchBar from './SearchBar.vue';
 
 export default {
   name: 'HomePage',
+  components: {
+    SearchBar,
+  },
   data() {
     return {
       loading: true,
@@ -41,16 +42,6 @@ export default {
 </script>
 
 <style scoped>
-.header {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.search-box {
-  width: 300px;
-  padding: 10px;
-  font-size: 16px;
-}
 
 .movies {
   display: flex;
