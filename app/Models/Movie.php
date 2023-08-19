@@ -13,4 +13,20 @@ class Movie extends Model
     {
         return $this->hasMany(Preview::class);
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'movie_tag');
+    }
+
+    public function actors()
+    {
+        return $this->belongsToMany(Actor::class, 'movie_actor');
+    }
+
+    public function viewRecords()
+    {
+        return $this->hasMany(ViewRecord::class);
+    }
+
 }

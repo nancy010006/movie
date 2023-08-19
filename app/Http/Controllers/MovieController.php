@@ -26,4 +26,16 @@ class MovieController extends Controller
         return response()->json($movies);
     }
 
+    public function show($id)
+    {
+        $movie = Movie::with(['tags', 'actors', 'viewRecords', 'previews'])->find($id);
+
+        if ($movie) {
+            return response()->json($movie);
+        } else {
+            return response()->json(['error' => 'Video not found'], 404);
+        }
+    }
+
+
 }
