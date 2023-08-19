@@ -2066,7 +2066,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: 'HomePage'
+  name: 'HomePage',
+  data: function data() {
+    return {
+      recommendedMovies: [
+      // Example movies
+      {
+        id: 1,
+        title: 'Movie 1',
+        description: 'This is movie 1',
+        image: 'path/to/image1.jpg'
+      }, {
+        id: 2,
+        title: 'Movie 2',
+        description: 'This is movie 2',
+        image: 'path/to/image2.jpg'
+      }
+      // Add more movies as needed
+      ]
+    };
+  }
 });
 
 /***/ }),
@@ -2086,12 +2105,39 @@ __webpack_require__.r(__webpack_exports__);
 var render = function render() {
   var _vm = this,
     _c = _vm._self._c;
-  return _vm._m(0);
+  return _c("div", {
+    staticClass: "home-page"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "movies"
+  }, _vm._l(_vm.recommendedMovies, function (movie) {
+    return _c("div", {
+      key: movie.id,
+      staticClass: "movie-card"
+    }, [_c("img", {
+      staticClass: "movie-image",
+      attrs: {
+        src: movie.image,
+        alt: "Movie poster"
+      }
+    }), _vm._v(" "), _c("h3", {
+      staticClass: "movie-title"
+    }, [_vm._v(_vm._s(movie.title))]), _vm._v(" "), _c("p", {
+      staticClass: "movie-description"
+    }, [_vm._v(_vm._s(movie.description))])]);
+  }), 0)]);
 };
 var staticRenderFns = [function () {
   var _vm = this,
     _c = _vm._self._c;
-  return _c("div", [_c("h1", [_vm._v("Welcome to My Movie Site")])]);
+  return _c("div", {
+    staticClass: "header"
+  }, [_c("h1", [_vm._v("Welcome to My Movie Site")]), _vm._v(" "), _c("input", {
+    staticClass: "search-box",
+    attrs: {
+      type: "text",
+      placeholder: "Search movies..."
+    }
+  })]);
 }];
 render._withStripped = true;
 
@@ -2151,7 +2197,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\r\n/* Your CSS here */\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.header[data-v-fa44bb0e] {\r\n  text-align: center;\r\n  margin-bottom: 20px;\n}\n.search-box[data-v-fa44bb0e] {\r\n  width: 300px;\r\n  padding: 10px;\r\n  font-size: 16px;\n}\n.movies[data-v-fa44bb0e] {\r\n  display: flex;\r\n  flex-wrap: wrap;\r\n  justify-content: center;\n}\n.movie-card[data-v-fa44bb0e] {\r\n  width: 200px;\r\n  margin: 15px;\r\n  padding: 10px;\r\n  border: 1px solid #ccc;\r\n  text-align: center;\n}\n.movie-image[data-v-fa44bb0e] {\r\n  width: 100%;\r\n  height: auto;\n}\n.movie-title[data-v-fa44bb0e] {\r\n  font-size: 18px;\n}\n.movie-description[data-v-fa44bb0e] {\r\n  font-size: 14px;\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
