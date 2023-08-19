@@ -17,6 +17,7 @@ class MovieController extends Controller
         // 加上 host 變數
         $host = 'http://local.resources'; // 請替換為實際的 host
         foreach ($movies as $movie) {
+            $movie->video_path = "{$host}/{$movie->video_path}";
             foreach ($movie->previews as $preview) {
                 $preview->image_path = "{$host}/{$preview->image_path}";
             }
