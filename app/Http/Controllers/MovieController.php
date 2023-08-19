@@ -13,8 +13,16 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::with('previews')->get();
+
+        // 加上 host 變數
+        $host = 'http://local.resources'; // 請替換為實際的 host
+        foreach ($movies as $movie) {
+            foreach ($movie->previews as $preview) {
+                $preview->image_path = "{$host}/{$preview->image_path}";
+            }
+        }
+
         return response()->json($movies);
-        
     }
 
 }
