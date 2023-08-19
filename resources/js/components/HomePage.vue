@@ -5,8 +5,9 @@
       <input type="text" placeholder="Search movies..." class="search-box" />
     </div>
     <div class="movies">
-      <div class="movie-card" v-for="movie in recommendedMovies" :key="movie.id">
-        <img :src="movie.image" alt="Movie poster" class="movie-image" />
+      <div v-if="loading">Loading movies...</div>
+      <div class="movie-card" v-for="movie in movies" :key="movie.id">
+        <img v-if="movie.previews && movie.previews.length > 0" :src="movie.previews[0].image_path" alt="Movie poster" class="movie-image" />
         <h3 class="movie-title">{{ movie.title }}</h3>
         <p class="movie-description">{{ movie.description }}</p>
       </div>
@@ -15,17 +16,26 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'HomePage',
   data() {
     return {
-      recommendedMovies: [
-        // Example movies
-        { id: 1, title: 'Movie 1', description: 'This is movie 1', image: 'path/to/image1.jpg' },
-        { id: 2, title: 'Movie 2', description: 'This is movie 2', image: 'path/to/image2.jpg' },
-        // Add more movies as needed
-      ],
+      loading: true,
+      movies: [],
     };
+  },
+  mounted() {
+    axios.get('http://127.0.0.1/mymovie/public/api/movies')
+      .then(response => {
+        this.movies = response.data;
+        this.loading = false;
+      })
+      .catch(error => {
+        console.error('An error occurred while fetching movies:', error);
+        this.loading = false;
+      });
   },
 };
 </script>
