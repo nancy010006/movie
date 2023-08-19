@@ -7,7 +7,7 @@ Vue.use(VueRouter);
 
 const routes = [
     { path: '/', component: HomePage },
-    { path: '/VideoPage', component: VideoPage },
+    { path: '/video/:videoPath', component: VideoPage },
 ];
 
 const router = new VueRouter({

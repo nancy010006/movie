@@ -13,11 +13,12 @@ import 'video.js/dist/video-js.css';
 import videojs from 'video.js';
 
 export default {
+  props: ['videoSrc'], // 接收影片 URL 道具
   mounted() {
     const player = videojs(this.$refs.videoPlayer, {
       controls: true,
       sources: [
-        { type: 'video/mp4', src: 'http://local.resources/videos/uccu0323_3172327330899320080.mp4' }
+        { type: 'video/mp4', src: this.videoSrc }
       ]
     });
 
