@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomePage from './components/HomePage.vue';
+import VideoPage from './components/VideoPage.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
     { path: '/', component: HomePage },
-    // 其他路由
+    { path: '/VideoPage', component: VideoPage },
 ];
 
 const router = new VueRouter({
