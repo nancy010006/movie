@@ -1,8 +1,12 @@
 <template>
-  <div class="main-video">
-    <video ref="videoPlayer" class="video-js" controls></video>
+  <div class="video-container">
+    <div class="main-video">
+      <video ref="videoPlayer" class="video-js" controls></video>
+    </div>
+    <!-- 你可以在這裡添加其他組件，例如建議的視頻列表 -->
   </div>
 </template>
+
 
 <script>
 import 'video.js/dist/video-js.css';
@@ -39,6 +43,20 @@ export default {
 };
 </script>
 
-<style>
-/* 如果需要，可以在這裡添加一些樣式 */
+<style scoped>
+.video-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.main-video {
+  width: 50%; /* 設置寬度為50% */
+}
+
+.video-js {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9比例 */
+  background-color: #000;
+}
 </style>

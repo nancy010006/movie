@@ -1,7 +1,7 @@
 <template>
   <div>
     <search-bar></search-bar>
-    <div class="video-container">
+    <div class="video-page-container">
       <main-video></main-video>
       <suggested-videos></suggested-videos>
     </div>
