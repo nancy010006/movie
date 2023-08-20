@@ -6,6 +6,7 @@
       class="video"
       @mouseover="playPreview"
       @mouseout="pausePreview"
+      @loadedmetadata="onMetadataLoaded"
       loop
       muted
     ></video>
@@ -14,19 +15,29 @@
 
 <script>
 export default {
+  data() {
+    return {
+      canPlay: false,
+    };
+  },
   props: ['videoPath', 'previews'],
   methods: {
+    onMetadataLoaded() {
+      this.canPlay = true;
+    },
     async playPreview(event) {
+      if (!this.canPlay) return; // 如果元數據還未加載，不嘗試播放
+
       const videoElement = event.target;
-      videoElement.currentTime = videoElement.duration / 2; // 將播放位置設置到影片中間
+      videoElement.currentTime = videoElement.duration / 2;
       try {
-      await videoElement.play(); // 播放影片
+        await videoElement.play();
       } catch (e) {
       }
     },
     pausePreview(event) {
-      event.target.pause(); // 暫停影片
-      event.target.currentTime = 0; // 將播放位置重置到開始
+      event.target.pause();
+      event.target.currentTime = 0;
     }
   }
 };
