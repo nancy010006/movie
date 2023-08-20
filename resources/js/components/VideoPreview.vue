@@ -2,7 +2,6 @@
   <div class="video-preview">
     <video
       ref="previewVideo"
-      v-if="previews && previews.length > 0"
       :src="videoPath"
       class="video"
       @mouseover="playPreview"
@@ -26,7 +25,7 @@ export default {
       event.target.pause(); // 暫停影片
       event.target.currentTime = 0; // 將播放位置重置到開始
     }
-  }
+  },
 };
 </script>
 
