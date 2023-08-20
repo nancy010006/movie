@@ -23,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('movies', [MovieController::class, 'index']);
 Route::get('movie/{id}', [MovieController::class, 'show']);
 Route::get('search', [SearchController::class, 'search']);
+Route::post('/movies/{movie}/add-tag', [MovieController::class, 'addTag']);

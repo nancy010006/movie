@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Movie;
+use App\Models\Tag;
 use Illuminate\Support\Facades\Log;
 
 
@@ -35,6 +36,21 @@ class MovieController extends Controller
         } else {
             return response()->json(['error' => 'Video not found'], 404);
         }
+    }
+
+    public function addTag(Request $request, Movie $movie)
+    {
+        $tagName = $request->input('tag');
+
+        // 查找或創建標籤
+        $tag = Tag::firstOrCreate(['name' => $tagName]);
+
+        // 確保此標籤還沒有與此電影相關聯
+        if (!$movie->tags->contains($tag)) {
+            $movie->tags()->attach($tag->id);
+        }
+
+        return response()->json(['message' => 'Tag added successfully']);
     }
 
 

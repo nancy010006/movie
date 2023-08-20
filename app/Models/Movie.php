@@ -16,7 +16,7 @@ class Movie extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'movie_tag');
+        return $this->belongsToMany(Tag::class, 'movie_tag', 'movie_id', 'tag_id');
     }
 
     public function actors()
