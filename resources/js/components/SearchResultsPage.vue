@@ -1,5 +1,6 @@
 <template>
   <div class="search-results-page">
+    <navigation-bar></navigation-bar>
     <search-bar></search-bar>
     <h1>Search Result</h1>
     <div class="results">
@@ -21,12 +22,14 @@ import axios from 'axios';
 import SearchBar from './SearchBar.vue';
 import MovieCard from './MovieCard.vue'; // 引入 MovieCard 組件
 import { API_HOST } from '../config';
+import NavigationBar from './NavigationBar.vue';
 
 export default {
   name: 'SearchResultsPage',
   components: {
     SearchBar,
-    MovieCard // 加入 MovieCard 組件
+    MovieCard, // 加入 MovieCard 組件
+    NavigationBar,
   },
   data() {
     return {

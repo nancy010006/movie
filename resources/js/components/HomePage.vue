@@ -1,5 +1,6 @@
 <template>
   <div class="home-page">
+    <navigation-bar></navigation-bar>
     <search-bar></search-bar>
     <div class="movies">
       <div v-if="loading">Loading movies...</div>
@@ -20,12 +21,14 @@ import axios from 'axios';
 import SearchBar from './SearchBar.vue';
 import MovieCard from './MovieCard.vue'; // 引入 MovieCard 組件
 import { API_HOST } from '../config';
+import NavigationBar from './NavigationBar.vue';
 
 export default {
   name: 'HomePage',
   components: {
     SearchBar,
     MovieCard, // 加入 MovieCard 組件
+    NavigationBar,
   },
   data() {
     return {

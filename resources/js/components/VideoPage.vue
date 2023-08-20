@@ -1,5 +1,6 @@
 <template>
   <div>
+    <navigation-bar></navigation-bar>
     <search-bar></search-bar>
     <div class="video-page-container">
       <main-video :videoSrc="videoSrc"></main-video>
@@ -22,6 +23,7 @@ import VideoTags from './VideoTags.vue';
 import VideoActors from './VideoActors.vue';
 import VideoHistory from './VideoHistory.vue';
 import { API_HOST } from '../config';
+import NavigationBar from './NavigationBar.vue';
 
 export default {
   data() {
@@ -53,7 +55,8 @@ export default {
     SuggestedVideos,
     VideoTags,
     VideoActors,
-    VideoHistory
+    VideoHistory,
+    NavigationBar,
   },
 }
 </script>
