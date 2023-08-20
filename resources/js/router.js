@@ -7,7 +7,11 @@ import SearchResultsPage from './components/SearchResultsPage.vue';
 Vue.use(VueRouter);
 
 const routes = [
-    { path: '/', component: HomePage },
+    { 
+        path: '/',
+        name: 'HomePage',
+        component: HomePage,
+    },
     {
         path: '/video/:videoPath/:id',
         name: 'videoPage',
