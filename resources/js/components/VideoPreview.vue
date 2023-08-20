@@ -16,16 +16,19 @@
 export default {
   props: ['videoPath', 'previews'],
   methods: {
-    playPreview(event) {
+    async playPreview(event) {
       const videoElement = event.target;
       videoElement.currentTime = videoElement.duration / 2; // 將播放位置設置到影片中間
-      videoElement.play(); // 播放影片
+      try {
+      await videoElement.play(); // 播放影片
+      } catch (e) {
+      }
     },
     pausePreview(event) {
       event.target.pause(); // 暫停影片
       event.target.currentTime = 0; // 將播放位置重置到開始
     }
-  },
+  }
 };
 </script>
 
