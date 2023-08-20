@@ -46,11 +46,12 @@ class MovieController extends Controller
         $tag = Tag::firstOrCreate(['name' => $tagName]);
 
         // 確保此標籤還沒有與此電影相關聯
-        if (!$movie->tags->contains($tag)) {
+        if (!$movie->tags->pluck('id')->contains($tag->id)) {
             $movie->tags()->attach($tag->id);
+            return response()->json(['message' => 'Tag added successfully'], 201); // 201 Created
         }
 
-        return response()->json(['message' => 'Tag added successfully']);
+        return response()->json(['message' => 'Tag already associated with this movie'], 409); // 409 Conflict
     }
 
 
