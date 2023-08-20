@@ -9,6 +9,7 @@
         <main-video :videoSrc="videoSrc"></main-video>
         <video-tags :tags="videoDetails.tags"></video-tags>
         <video-actors :actors="videoDetails.actors"></video-actors>
+        <p> {{videoDetails.description}} </p>
       </div>
       <video-history></video-history>
     </div>
