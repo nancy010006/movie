@@ -19,9 +19,8 @@ export default {
   props: ['actors'], // 接收演員道具
   methods: {
     searchActor(actorName) {
-      // 在此處觸發搜尋功能，可以通過發送事件或調用父組件方法實現
-      // 以下是發送自定義事件的示例，你可以根據實際情況調整
-      this.$emit('search', actorName);
+      this.$store.commit('updateQuery', actorName); // 更新 Vuex 的查詢字串
+      this.$router.push({ name: 'SearchResults', query: { query: actorName } }); // 觸發搜索
     },
   },
 };

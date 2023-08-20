@@ -20,8 +20,8 @@ export default {
 
   methods: {
     searchTag(tagName) {
-      // 帶入搜尋框並執行搜尋的邏輯
-      // 你可能需要在這裡添加相應的邏輯，以便將標籤名稱帶入搜尋框並執行搜尋
+      this.$store.commit('updateQuery', tagName); // 更新 Vuex 的查詢字串
+      this.$router.push({ name: 'SearchResults', query: { query: tagName } }); // 觸發搜索
     },
   },
 };
