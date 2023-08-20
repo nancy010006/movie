@@ -16,20 +16,9 @@ class PreviewFactory extends Factory
             $this->faker->imageUrl, // 其他隨機生成的圖片路徑
             $this->faker->imageUrl, // 其他隨機生成的圖片路徑
             $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
-            $this->faker->imageUrl, // 其他隨機生成的圖片路徑
         ];
 
         return [
-            'movie_id' => \App\Models\Movie::factory(),
             'image_path' => $this->faker->randomElement($images),
         ];
     }

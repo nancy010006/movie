@@ -11,8 +11,15 @@ class TagFactory extends Factory
 
     public function definition()
     {
+        $tags = [
+            'A',
+            'B',
+            'C',
+            'D',
+            'E',
+        ];
         return [
-            'name' => $this->faker->word,
+            'name' => $this->faker->randomElement($tags),
         ];
     }
 }

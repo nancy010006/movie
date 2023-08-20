@@ -12,7 +12,6 @@ class ViewRecordFactory extends Factory
     public function definition()
     {
         return [
-            'movie_id' => \App\Models\Movie::factory(),
             'view_date' => $this->faker->date,
         ];
     }

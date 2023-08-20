@@ -11,8 +11,16 @@ class ActorFactory extends Factory
 
     public function definition()
     {
+        $actors = [
+            'actorA',
+            'actorB',
+            'actorC',
+            'actorD',
+            'actorE',
+            'actorF',
+        ];
         return [
-            'name' => $this->faker->name,
+            'name' => $this->faker->randomElement($actors),
         ];
     }
 }

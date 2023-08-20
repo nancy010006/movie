@@ -17,18 +17,6 @@ class MovieFactory extends Factory
             $this->faker->url, // 其他隨機生成的影片路徑
             $this->faker->url, // 其他隨機生成的影片路徑
             $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
-            $this->faker->url, // 其他隨機生成的影片路徑
         ];
 
         return [
