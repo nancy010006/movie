@@ -44,7 +44,6 @@ export default {
     fetchResults() {
       this.loading = true;
       this.query = this.$route.query.query || '';
-      this.query = 'Labore';
       axios.get(`${API_HOST}/api/search?query=${this.query}`)
         .then(response => {
           this.movies = response.data;
