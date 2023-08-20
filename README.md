@@ -25,3 +25,6 @@ curl -u "elastic:changeme" "http://localhost:9200/_cluster/health?pretty"
 
 透過這個指令可以將數據同步到elasticsearch
 php artisan sync:movies-to-elasticsearch
+
+添加影片腳本
+php artisan import:movies
