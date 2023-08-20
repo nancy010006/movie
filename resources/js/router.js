@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import HomePage from './components/HomePage.vue';
 import VideoPage from './components/VideoPage.vue';
+import SearchResultsPage from './components/SearchResultsPage.vue';
 
 Vue.use(VueRouter);
 
@@ -11,6 +12,11 @@ const routes = [
         path: '/video/:videoPath/:id',
         name: 'videoPage',
         component: VideoPage,
+    },
+    {
+        path: '/search',
+        name: 'SearchResults',
+        component: SearchResultsPage
     },
 ];
 
