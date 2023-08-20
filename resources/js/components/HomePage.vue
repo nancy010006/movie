@@ -53,28 +53,4 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
 }
-
-/* 以下 CSS 部分已移至 MovieCard 組件中 */
-/* 
-.movie-card {
-  width: 200px;
-  margin: 15px;
-  padding: 10px;
-  border: 1px solid #ccc;
-  text-align: center;
-}
-
-.movie-image {
-  width: 100%;
-  height: auto;
-}
-
-.movie-title {
-  font-size: 18px;
-}
-
-.movie-description {
-  font-size: 14px;
-}
-*/
 </style>
