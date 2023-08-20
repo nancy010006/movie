@@ -8,16 +8,7 @@
           name: 'videoPage',
           params: { videoPath: encodeURIComponent(movie.video_path), id: movie.id }
         }">
-          <video
-            ref="previewVideo"
-            v-if="movie.previews && movie.previews.length > 0"
-            :src="movie.video_path"
-            class="movie-video"
-            @mouseover="playPreview"
-            @mouseout="pausePreview"
-            loop
-            muted
-          ></video>
+          <video-preview :video-path="movie.video_path" :previews="movie.previews"></video-preview>
           <h3 class="movie-title">{{ movie.title }}</h3>
         </router-link>
       </div>
@@ -28,12 +19,14 @@
 <script>
 import axios from 'axios';
 import SearchBar from './SearchBar.vue';
+import VideoPreview from './VideoPreview.vue';
 import { API_HOST } from '../config';
 
 export default {
   name: 'HomePage',
   components: {
     SearchBar,
+    VideoPreview,
   },
   data() {
     return {
@@ -51,17 +44,6 @@ export default {
         console.error('An error occurred while fetching movies:', error);
         this.loading = false;
       });
-  },
-  methods: {
-    playPreview(event) {
-      const videoElement = event.target;
-      videoElement.currentTime = videoElement.duration / 2; // 將播放位置設置到影片中間
-      videoElement.play(); // 播放影片
-    },
-    pausePreview(event) {
-      event.target.pause(); // 暫停影片
-      event.target.currentTime = 0; // 將播放位置重置到開始
-    }
   }
 };
 </script>
