@@ -40,7 +40,6 @@ export default {
     axios.get(`${API_HOST}/api/movie/${videoId}`)
       .then(response => {
         this.videoDetails = response.data;
-        console.log(this.videoDetails);
       })
       .catch(error => {
         console.error('An error occurred while fetching video details:', error);
