@@ -3,9 +3,10 @@
     <navigation-bar></navigation-bar>
     <search-bar></search-bar>
     <div class="video-page-container">
-      <main-video :videoSrc="videoSrc"></main-video>
       <suggested-videos></suggested-videos>
       <div v-if="videoDetails">
+        <h2> {{videoDetails.title}} </h2>
+        <main-video :videoSrc="videoSrc"></main-video>
         <video-tags :tags="videoDetails.tags"></video-tags>
         <video-actors :actors="videoDetails.actors"></video-actors>
       </div>
