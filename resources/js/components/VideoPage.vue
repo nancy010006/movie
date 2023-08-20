@@ -4,10 +4,12 @@
     <div class="video-page-container">
       <main-video :videoSrc="videoSrc"></main-video>
       <suggested-videos></suggested-videos>
+      <div v-if="videoDetails">
+        <video-tags :tags="videoDetails.tags"></video-tags>
+        <video-actors :actors="videoDetails.actors"></video-actors>
+      </div>
+      <video-history></video-history>
     </div>
-    <video-tags :tags="videoDetails.tags"></video-tags>
-    <video-actors :actors="videoDetails.actors"></video-actors>
-    <video-history></video-history>
   </div>
 </template>
 
