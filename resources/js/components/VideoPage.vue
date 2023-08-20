@@ -7,7 +7,7 @@
       <div v-if="videoDetails">
         <h2> {{videoDetails.title}} </h2>
         <main-video :videoSrc="videoSrc"></main-video>
-        <video-tags :tags="videoDetails.tags"></video-tags>
+        <video-tags :tags="videoDetails.tags" :movieId="videoDetails.id"></video-tags>
         <video-actors :actors="videoDetails.actors"></video-actors>
         <p> {{videoDetails.description}} </p>
       </div>
