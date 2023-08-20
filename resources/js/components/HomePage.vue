@@ -28,6 +28,7 @@
 <script>
 import axios from 'axios';
 import SearchBar from './SearchBar.vue';
+import { API_HOST } from '../config';
 
 export default {
   name: 'HomePage',
@@ -41,7 +42,7 @@ export default {
     };
   },
   mounted() {
-    axios.get('http://127.0.0.1/mymovie/public/api/movies')
+    axios.get(`${API_HOST}/api/movies`)
       .then(response => {
         this.movies = response.data;
         this.loading = false;

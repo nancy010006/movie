@@ -19,6 +19,7 @@ import SuggestedVideos from './SuggestedVideos.vue';
 import VideoTags from './VideoTags.vue';
 import VideoActors from './VideoActors.vue';
 import VideoHistory from './VideoHistory.vue';
+import { API_HOST } from '../config';
 
 export default {
   data() {
@@ -36,7 +37,7 @@ export default {
     const videoId = this.$route.params.id;
 
     // 發送 API 請求以獲取影片詳細信息
-    axios.get(`http://127.0.0.1/mymovie/public/api/movie/${videoId}`)
+    axios.get(`${API_HOST}/api/movie/${videoId}`)
       .then(response => {
         this.videoDetails = response.data;
         console.log(this.videoDetails);
