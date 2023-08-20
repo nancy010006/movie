@@ -14,7 +14,7 @@ const routes = [
         component: VideoPage,
     },
     {
-        path: '/search/:query',
+        path: '/search',
         name: 'SearchResults',
         component: SearchResultsPage
     },
