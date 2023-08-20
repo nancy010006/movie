@@ -66,14 +66,14 @@ class SyncMoviesToElasticsearch extends Command
         $this->client->indices()->create($indexParams);
 
         $movies = Movie::with(['tags', 'actors'])->get(); // 使用預加載以提高效率
-
+        $host = 'http://local.resources';
         foreach ($movies as $movie) {
             $params = [
                 'index' => 'movies',
                 'id'    => $movie->id,
                 'body'  => [
                     'title'       => $movie->title,
-                    'video_path'  => $movie->video_path,
+                    'video_path'  => "{$host}/{$movie->video_path}",
                     'view_count'  => $movie->view_count,
                     'tags'        => $movie->tags->pluck('name')->toArray(), // 取得所有標籤名稱
                     'actors'      => $movie->actors->pluck('name')->toArray() // 取得所有演員名稱
