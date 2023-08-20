@@ -54,5 +54,23 @@ class MovieController extends Controller
         return response()->json(['message' => 'Tag already associated with this movie'], 409); // 409 Conflict
     }
 
+    public function getThumbnail(Request $request, $movieId, $time)
+    {
+        $movie = Movie::find($movieId);
+        if (!$movie) {
+            return response()->json(['error' => 'Movie not found'], 404);
+        }
+
+        $host = 'http://local.resources'; // 請替換為實際的 host
+        $videoPath = "{$host}/{$movie->video_path}";
+
+        // 使用 FFmpeg 生成縮略圖
+        $thumbnailPath = "/thumbnails/{$movieId}_{$time}.jpg";
+        $outputPath = public_path($thumbnailPath);
+        $ffmpegCommand = "ffmpeg -i {$videoPath} -ss {$time} -vframes 1 {$outputPath}";
+        exec($ffmpegCommand);
+
+        return response()->file($outputPath);
+    }
 
 }
