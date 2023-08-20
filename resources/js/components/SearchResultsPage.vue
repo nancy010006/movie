@@ -1,6 +1,7 @@
 <template>
   <div class="search-results-page">
     <search-bar></search-bar>
+    <h1>Search Result</h1>
     <div class="results">
       <div v-if="loading">Loading movies...</div>
       <movie-card
