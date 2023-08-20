@@ -38,5 +38,9 @@ export default {
 
 .movie-title {
   font-size: 18px;
+  white-space: normal; /* 允許換行 */
+  overflow-wrap: break-word; /* 自動斷字 */
+  word-wrap: break-word; /* 自動斷字 */
+  width: 100%; /* 使標題寬度與卡片匹配 */
 }
 </style>
