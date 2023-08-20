@@ -4,7 +4,10 @@
     <div class="movies">
       <div v-if="loading">Loading movies...</div>
       <div class="movie-card" v-for="movie in movies" :key="movie.id">
-        <router-link :to="`/video/${encodeURIComponent(movie.video_path)}`">
+        <router-link :to="{
+          name: 'videoPage',
+          params: { videoPath: encodeURIComponent(movie.video_path), id: movie.id }
+        }">
           <video
             ref="previewVideo"
             v-if="movie.previews && movie.previews.length > 0"
