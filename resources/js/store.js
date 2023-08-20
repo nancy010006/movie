@@ -10,6 +10,9 @@ export default new Vuex.Store({
     mutations: {
         updateQuery(state, query) {
             state.query = query;
+        },
+        clearQuery(state) {
+            state.query = ''; // 清除查詢
         }
     }
 });
