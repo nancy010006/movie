@@ -45,11 +45,6 @@ export default {
         console.error('An error occurred while fetching video details:', error);
       });
   },
-  methods: {
-    getVideoDetails(videoId) {
-        return 1;
-    }
-  },
   components: {
     SearchBar,
     MainVideo,
