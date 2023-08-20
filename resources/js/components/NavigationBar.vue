@@ -10,7 +10,9 @@ export default {
   methods: {
     goToHomePage() {
       this.$store.commit('clearQuery'); // 使用 Vuex 的 mutation 清除查詢
-      this.$router.push({ name: 'HomePage' }); // 使用具名路由跳轉到首頁
+      if (this.$route.path !== '/') {
+        this.$router.push({ name: 'HomePage' }); // 使用具名路由跳轉到首頁
+      }
     }
   }
 };
