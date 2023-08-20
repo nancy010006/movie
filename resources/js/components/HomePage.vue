@@ -3,15 +3,14 @@
     <search-bar></search-bar>
     <div class="movies">
       <div v-if="loading">Loading movies...</div>
-      <div class="movie-card" v-for="movie in movies" :key="movie.id">
-        <router-link :to="{
-          name: 'videoPage',
-          params: { videoPath: encodeURIComponent(movie.video_path), id: movie.id }
-        }">
-          <video-preview :video-path="movie.video_path" :previews="movie.previews"></video-preview>
-          <h3 class="movie-title">{{ movie.title }}</h3>
-        </router-link>
-      </div>
+      <movie-card
+        v-for="movie in movies"
+        :key="movie.id"
+        :videoPath="movie.video_path"
+        :previews="movie.previews"
+        :title="movie.title"
+        :id="movie.id"
+      ></movie-card>
     </div>
   </div>
 </template>
@@ -19,14 +18,14 @@
 <script>
 import axios from 'axios';
 import SearchBar from './SearchBar.vue';
-import VideoPreview from './VideoPreview.vue';
+import MovieCard from './MovieCard.vue'; // 引入 MovieCard 組件
 import { API_HOST } from '../config';
 
 export default {
   name: 'HomePage',
   components: {
     SearchBar,
-    VideoPreview,
+    MovieCard, // 加入 MovieCard 組件
   },
   data() {
     return {
@@ -49,19 +48,14 @@ export default {
 </script>
 
 <style scoped>
-
-.movie-video {
-  width: 100%;
-  height: auto;
-  cursor: pointer;
-}
-
 .movies {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
+/* 以下 CSS 部分已移至 MovieCard 組件中 */
+/* 
 .movie-card {
   width: 200px;
   margin: 15px;
@@ -82,4 +76,5 @@ export default {
 .movie-description {
   font-size: 14px;
 }
+*/
 </style>
